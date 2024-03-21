@@ -58,16 +58,23 @@ Authenticate a organization.
 
 Register a new pet. ( **_Authentication required_** )
 
+Accepted values:
+- Age: puppy, adult, elderly;
+- Size: small, medium, big;
+- Energy Level: very low, low, medium, high, very high;
+- Independence Level: low, medium, high;
+- Environment: small, medium, big;
+
 #### Request body
 ```json
 {
-	"name": "Ruby",
+    "name": "Ruby",
     "about": "More about the pet.",
-    "age": "puppy",                 // [ puppy, adult, elderly ]
-    "size": "small",                // [ small, medium, big ]
-    "energyLevel": "high",          // [ very low, low, medium, high, very high ]
-    "independenceLevel": "low",     // [ low, medium, high ]
-    "environment": "small"          // [ small, medium, big ]
+    "age": "puppy",
+    "size": "small",
+    "energyLevel": "high",
+    "independenceLevel": "low",
+    "environment": "small"
 }
 ```
 
@@ -79,20 +86,20 @@ Return data from a single organization.
 ```json
 {
     "id": "88596954-9a28-4e0b-9619-8455fe17908c",
-	"name": "John Doe Organization",
-	"personResponsible": "John Doe",
-	"email": "johndoe@example.com",
-	"whatsapp": "(32)99900-1100",
-	"cep": "30130-005",
-	"state": "MG",
-	"city": "Belo Horizonte",
-	"street": "Av. Afonso Pena",
-	"neighborhood": "Centro",
-	"number": "999",
-	"complement": null,
-	"latitude": "-19.924937",
-	"longitude": "-43.934905",
-	"createdAt": "2024-03-20T18:14:49.617Z"
+    "name": "John Doe Organization",
+    "personResponsible": "John Doe",
+    "email": "johndoe@example.com",
+    "whatsapp": "(32)99900-1100",
+    "cep": "30130-005",
+    "state": "MG",
+    "city": "Belo Horizonte",
+    "street": "Av. Afonso Pena",
+    "neighborhood": "Centro",
+    "number": "999",
+    "complement": null,
+    "latitude": "-19.924937",
+    "longitude": "-43.934905",
+    "createdAt": "2024-03-20T18:14:49.617Z"
 }
 ```
 
@@ -111,25 +118,25 @@ Return data from nearby organizations.
 #### Response body
 ```json
 {
-	"orgs": [
-		{
-			"id": "88596954-9a28-4e0b-9619-8455fe17908c",
-			"name": "John Doe Organization",
-			"person_responsible": "John Doe",
-			"email": "johndoe@example.com",
-			"whatsapp": "(32)99900-1100",
-			"cep": "30130-005",
-			"state": "MG",
-			"city": "Belo Horizonte",
-			"street": "Av. Afonso Pena",
-			"neighborhood": "Centro",
-			"number": "999",
-			"complement": null,
-			"latitude": "-19.924937",
-			"longitude": "-43.934905",
-			"created_at": "2024-03-20T18:14:49.617Z"
-		}
-	]
+    "orgs": [
+        {
+            "id": "88596954-9a28-4e0b-9619-8455fe17908c",
+            "name": "John Doe Organization",
+            "person_responsible": "John Doe",
+            "email": "johndoe@example.com",
+            "whatsapp": "(32)99900-1100",
+            "cep": "30130-005",
+            "state": "MG",
+            "city": "Belo Horizonte",
+            "street": "Av. Afonso Pena",
+            "neighborhood": "Centro",
+            "number": "999",
+            "complement": null,
+            "latitude": "-19.924937",
+            "longitude": "-43.934905",
+            "created_at": "2024-03-20T18:14:49.617Z"
+        }
+    ]
 }
 ```
 
@@ -140,16 +147,16 @@ Return data from a single pet.
 #### Response body
 ```json
 {
-	"id": "2c70ef96-65b0-452c-bca0-857840d1d547",
-	"name": "Ruby",
-	"about": "More about the pet.",
-	"age": "puppy",
-	"size": "small",
-	"energyLevel": "high",
-	"independenceLevel": "low",
-	"environment": "small",
-	"createdAt": "2024-03-21T18:20:25.275Z",
-	"orgId": "88596954-9a28-4e0b-9619-8455fe17908c"
+    "id": "2c70ef96-65b0-452c-bca0-857840d1d547",
+    "name": "Ruby",
+    "about": "More about the pet.",
+    "age": "puppy",
+    "size": "small",
+    "energyLevel": "high",
+    "independenceLevel": "low",
+    "environment": "small",
+    "createdAt": "2024-03-21T18:20:25.275Z",
+    "orgId": "88596954-9a28-4e0b-9619-8455fe17908c"
 }
 ```
 
@@ -157,36 +164,40 @@ Return data from a single pet.
 
 Return data from a search for pets.
 
+City and state are mandatory, the rest are optional. Accepted values:
+- City: [...];
+- State: [...];
+- Age: puppy, adult, elderly;
+- Size: small, medium, big;
+- Energy Level: very low, low, medium, high, very high;
+- Independence Level: low, medium, high;
+- Environment: small, medium, big;
+
 #### Request query
 ```json
 {
-    "city": "Belo Horizonte",   // Required
-    "state": "MG",              // Required
-    "age": "puppy",             // Optional
-    "size": "small",            // Optional
-    "energyLevel": "high",      // Optional
-    "independenceLevel": "low", // Optional
-    "environment": "small"      // Optional
+    "city": "Belo Horizonte",
+    "state": "MG",
 }
 ```
 
 #### Response body
 ```json
 {
-	"pets": [
-		{
-			"id": "2c70ef96-65b0-452c-bca0-857840d1d547",
-			"name": "Ruby",
-			"about": "More about the pet.",
-			"age": "puppy",
-			"size": "small",
-			"energyLevel": "high",
-			"independenceLevel": "low",
-			"environment": "small",
-			"createdAt": "2024-03-21T18:20:25.275Z",
-			"orgId": "88596954-9a28-4e0b-9619-8455fe17908c"
-		},
-	]
+    "pets": [
+        {
+            "id": "2c70ef96-65b0-452c-bca0-857840d1d547",
+            "name": "Ruby",
+            "about": "More about the pet.",
+            "age": "puppy",
+            "size": "small",
+            "energyLevel": "high",
+            "independenceLevel": "low",
+            "environment": "small",
+            "createdAt": "2024-03-21T18:20:25.275Z",
+            "orgId": "88596954-9a28-4e0b-9619-8455fe17908c"
+        },
+    ]
 }
 ```
 
